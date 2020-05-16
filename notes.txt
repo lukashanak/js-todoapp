@@ -1,0 +1,10 @@
+- .app
+    -- ul .list
+        --- li .task #task-id-X
+                ---- i .icon, mark as finished / unfinished, change class in the js so the icon changes too
+                ---- .task-name
+                ---- i .icon, static icon, delete
+
+    -- .add-task
+        --- input box, nothing else
+ 
