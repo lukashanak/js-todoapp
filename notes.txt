@@ -1,10 +1,17 @@
-- .app
-    -- ul .list
+- #app, centered horizontally and vertically, static height
+    -- div #all-tasks, static height, overflow horizontall scrollbar, border 1px solid green
+      ---ul list 
         --- li .task #task-id-X
                 ---- i .icon, mark as finished / unfinished, change class in the js so the icon changes too
                 ---- .task-name
                 ---- i .icon, static icon, delete
 
-    -- .add-task
+    -- .add-task, static height, border 1px solid red
         --- input box, nothing else
+ 
+
+ .task-classic
+ .task-finished
+ .task-unfinished
+
  

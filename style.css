@@ -1,0 +1,54 @@
+body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#app {
+    border: 2px solid black;
+    width: 350px;
+/*    overflow-y: scroll;  */
+}
+
+#show-tasks {
+    height: 300px;
+    border-bottom: 2px solid black;
+}
+
+#list-of-tasks {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.task-classic {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    padding: 4px;
+}
+
+
+.task-delete {
+    float: right;
+}
+
+#add-tasks {
+    height: 50px;
+}
+
+#add-task {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
