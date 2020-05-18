@@ -17,7 +17,7 @@ body {
 }
 
 #show-tasks {
-    height: 300px;
+    /* height: 300px; */
     border-bottom: 2px solid black;
 }
 
@@ -28,15 +28,36 @@ body {
 }
 
 .task-classic {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 25px;
+    
     border-bottom: 2px solid black;
     padding: 4px;
+    cursor: pointer;
 }
 
+.task-classic:hover {
+    font-weight: bold;
+}
+
+.delete-icon:hover {
+    font-size: 30px;
+}
+
+.task-not-finished {
+    background-color: green;
+}
+
+.task-finished {
+    text-decoration: line-through;
+    background-color: grey;
+}
 
 .task-delete {
     float: right;
+}
+
+.delete-icon {
+    color: red;
 }
 
 #add-tasks {

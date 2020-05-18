@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" />
-    <title>Calculator app</title>
+    <title>Todo app</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link
       rel="stylesheet"
@@ -19,8 +19,8 @@
     <div id="app">
       <div id="show-tasks">
         <ul id="list-of-tasks">
-          <li class="task-classic" id="#"> <span class="task-name"> Task name </span> <span class="task-delete"> delete-icon </span> </li>
-          <li class="task-classic" id="#"> <span class="task-name"> Task name </span> <span class="task-delete"> delete-icon </span> </li>
+          <li class="task-classic task-not-finished" id="#" title="click to finish or unfinish task"> <span class="task-name"> Unfinished task </span> <span class="task-delete"> <i class="fa fa-trash-o delete-icon" title="delete task"></i> </span> </li>
+          <li class="task-classic task-finished" id="#" title="click to finish or unfinish task"> <span class="task-name"> Finished task </span> <span class="task-delete"> <i class="fa fa-trash-o delete-icon" title="delete task"></i> </span> </li>
         </ul>
       </div>
       <div id="add-tasks">
