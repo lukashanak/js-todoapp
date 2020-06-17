@@ -4,6 +4,7 @@ class TodoApp {
         this.addTask= addTask;
     }
     addNewTask() {
+        let self = this;
          let value = this.addTask.value;
          if (addTask.value == "") { console.log("error, input is empty") }
          else {
@@ -18,24 +19,33 @@ class TodoApp {
          // create a span element for the task delete-icon
          let spanForDeleteIcon = document.createElement("span");
          spanForDeleteIcon.className="task-delete";
+         spanForDeleteIcon.id="span-for-delete-icon-"+this.lastTaskId;
             // icon for the delete-icon
             let deleteIcon = document.createElement("i");
             deleteIcon.className="fa fa-trash-o delete-icon";
+            deleteIcon.id="delete-"+this.lastTaskId;
         // inject pre-created elements into the real DOM
          document.getElementById("list-of-tasks").appendChild(list);
          document.getElementById(this.lastTaskId).appendChild(spanForName);
          document.getElementById(this.lastTaskId).appendChild(spanForDeleteIcon);
-        // spanForDeleteIcon.appendChild(deleteIcon);
+         document.getElementById(spanForDeleteIcon.id).appendChild(deleteIcon);
+         // event listener for delete icon
+         let x = this.lastTaskId;
+         document.getElementById(deleteIcon.id).addEventListener("click", function(){
+             self.removeTask(x);
+         })
+
          // others
          this.lastTaskId+=1;
-         console.log("task added"\);
+         console.log("task added");
         }
     }
     markAsFinished(taskId){
 
     }
     removeTask(taskId) {
-
+        document.getElementById(taskId).remove();
+        console.log((taskId) + " was removed");
     }
     markAsUnfinished(taskId) {
 
