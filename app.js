@@ -35,20 +35,33 @@ class TodoApp {
              self.removeTask(x);
          })
 
+         // event listener for the li element for the done / undone task
+         document.getElementById(this.lastTaskId).addEventListener("click", function () {
+             self.markAsDoneOrUndone(x);
+         })
+
          // others
+         this.addTask.value="";
          this.lastTaskId+=1;
          console.log("task added");
         }
     }
-    markAsFinished(taskId){
-
+    markAsDoneOrUndone(taskId){
+        let task = document.getElementById(taskId);
+        let isFinished = task.classList.contains("task-finished");
+        if (isFinished === true) {
+            task.classList.remove("task-finished");
+            task.classList.add("task-not-finished");
+        }
+        else {
+            task.classList.remove("task-not-finished");
+            task.classList.add("task-finished");
+        }
+        console.log("task number " + taskId + " done / undone");
     }
     removeTask(taskId) {
         document.getElementById(taskId).remove();
         console.log((taskId) + " was removed");
-    }
-    markAsUnfinished(taskId) {
-
     }
 }
 
