@@ -1,16 +1,16 @@
 class TodoApp {
     constructor() {
-        this.lastTaskId = 0;
-        this.addTask= addTask;
+        lastTaskId = 0;
+        addTask= addTask;
     }
     addNewTask() {
-        let self = this;
-         let value = this.addTask.value;
+        let self = 
+         let value = addTask.value;
          if (addTask.value == "") { console.log("error, input is empty") }
          else {
          // creae a li element 
          let list = document.createElement("li");
-         list.id= this.lastTaskId;
+         list.id= lastTaskId;
          list.className="task-classic task-not-finished";
          // create a span element for the task-name
          let spanForName = document.createElement("span");
@@ -19,30 +19,30 @@ class TodoApp {
          // create a span element for the task delete-icon
          let spanForDeleteIcon = document.createElement("span");
          spanForDeleteIcon.className="task-delete";
-         spanForDeleteIcon.id="span-for-delete-icon-"+this.lastTaskId;
+         spanForDeleteIcon.id="span-for-delete-icon-"+lastTaskId;
             // icon for the delete-icon
             let deleteIcon = document.createElement("i");
             deleteIcon.className="fa fa-trash-o delete-icon";
-            deleteIcon.id="delete-"+this.lastTaskId;
+            deleteIcon.id="delete-"+lastTaskId;
         // inject pre-created elements into the real DOM
          document.getElementById("list-of-tasks").appendChild(list);
-         document.getElementById(this.lastTaskId).appendChild(spanForName);
-         document.getElementById(this.lastTaskId).appendChild(spanForDeleteIcon);
+         document.getElementById(lastTaskId).appendChild(spanForName);
+         document.getElementById(lastTaskId).appendChild(spanForDeleteIcon);
          document.getElementById(spanForDeleteIcon.id).appendChild(deleteIcon);
          // event listener for delete icon
-         let x = this.lastTaskId;
+         let x = lastTaskId;
          document.getElementById(deleteIcon.id).addEventListener("click", function(){
              self.removeTask(x);
          })
 
          // event listener for the li element for the done / undone task
-         document.getElementById(this.lastTaskId).addEventListener("click", function () {
+         document.getElementById(lastTaskId).addEventListener("click", function () {
              self.markAsDoneOrUndone(x);
          })
 
          // others
-         this.addTask.value="";
-         this.lastTaskId+=1;
+         addTask.value="";
+         lastTaskId+=1;
          console.log("task added");
         }
     }
