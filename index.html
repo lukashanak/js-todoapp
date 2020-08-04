@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="./app.js" defer></script>
   </head>
 
   <body>
@@ -32,8 +31,8 @@
 -->
         </ul>
       </div>
-      <div id="add-tasks">
-        <input type="text" id="add-task" placeholder="Add task" maxlength="20">
+      <div class="add-task-div">
+        <input type="text" class="task-name" id="taskName" placeholder="Add task" maxlength="20">
       </div>
     </div>
 
@@ -43,4 +42,6 @@
 
 
   </body>
+  <script type="module" src="./addTaskToDom.module.js"></script>
+  <script src="./main.js"></script>
 </html>
