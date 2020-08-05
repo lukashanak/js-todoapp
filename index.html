@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" />
-    <meta 
-     name='viewport' 
-     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
-/>
-    <title>Todo app</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script type="module" src="./main.js" defer></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <title>Todo app</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <script src="./main.js" defer></script> -->
+</head>
+
+<body>
 
 
 
-    <div id="app">
-      <div id="show-tasks">
-        <ul id="list-of-tasks">
-          
+  <div id="app">
 
-<!-- TEMPLATE 
-          <li class="task-classic task-not-finished" id="#" title="click to finish or unfinish task"> <span class="task-name"> Unfinished task </span> <span class="task-delete"> <i class="fa fa-trash-o delete-icon" title="delete task"></i> </span> </li>
 
-          <li class="task-classic task-finished" id="#" title="click to finish or unfinish task"> <span class="task-name"> Finished task </span> <span class="task-delete"> <i class="fa fa-trash-o delete-icon" title="delete task"></i> </span> </li>
--->
-        </ul>
-      </div>
-      <div class="add-task-div">
-        <input type="text" class="task-name" id="taskName" placeholder="Add task" maxlength="20">
-      </div>
-    </div>
+    <!-- OUTPUT PART-->
+    <ul>
+        <li class="item" id="#">
+          <div class="w-80 finished-false">
+           <span class="name">Unfinished task</span></div><div class="w-20">
+            <i class="icon fa fa-trash-o"></i>
+          </div>
+        </li>
+    </ul>
+
+
+    <!-- INPUT PART-->
+    <input type="text" id="input" placeholder="Add task" maxlength="20">
+
+
+  </div>
 
 
 
 
 
 
-  </body>
+</body>
+
 </html>

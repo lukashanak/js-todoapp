@@ -1,10 +1,12 @@
+
+/* FOR GENERAL */
+
 body {
     position: fixed;
     top: 0;
     left: 0;
     min-width: 100%;
     min-height: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,69 +15,74 @@ body {
 #app {
     border: 2px solid black;
     width: 350px;
-/*    overflow-y: scroll;  */
 }
 
-@media screen and (max-width: 400px) {
-    #app {
-      width: 300px;
-    }
-  }
 
-#show-tasks {
-    /* height: 300px; */
-    border-bottom: 2px solid black;
-}
 
-#list-of-tasks {
+/* FOR OUTPUT PART */
+ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
 }
 
-.task-classic {
+.item {
     font-size: 25px;
-    
     border-bottom: 2px solid black;
-    padding: 4px;
-    cursor: pointer;
 }
 
-.task-classic:hover {
+
+
+/* ----- FOCUS ON THIS NOW */
+
+.name {
+    margin-left: 10px;
+}
+
+.w-80 {
+    display: inline-block;
+    width: 90%;
+}
+
+.w-20 {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    background-color: red;
+}
+
+.w-80, .w-20 {
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.finished-false {
+    background-color: grey;
     font-weight: bold;
 }
 
-.delete-icon:hover {
-    font-size: 30px;
-}
-
-.task-not-finished {
+.finished-true {
+    text-decoration: line-through;
     background-color: green;
 }
 
-.task-finished {
-    text-decoration: line-through;
-    background-color: grey;
-}
 
-.task-delete {
-    float: right;
-}
 
-.delete-icon {
-    color: red;
-}
-
-.add-task-div {
-    height: 50px;
-}
-
-.task-name {
+/* FOR INPUT PART */
+#input {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+    height: 50px;
+}
+
+
+@media screen and (max-width: 400px) {
+    #app {
+        width: 300px;
+    }
 }
