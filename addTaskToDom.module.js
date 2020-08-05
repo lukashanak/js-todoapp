@@ -1,16 +1,5 @@
 
-// this code is so ugly that I decided to hide it behind the module :-D 
-
-
-
-export function printLol = () => {
-    console.log("lol");
-}
-
-/*
-var addToDom = () => {
-    let value = data[data.length-1].task;
-    let id = data[data.length-1].id;
+export var addTaskToDom = (value, id) => {
     // creae a li element 
     let list = document.createElement("li");
     list.id= id;
@@ -42,5 +31,3 @@ var addToDom = () => {
         changeStatus(id);
     })
 }
-
-*/
