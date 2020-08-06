@@ -1,101 +1,97 @@
     var data = [
 
     ];
-    
+
+    var addTaskToDom = (name, id, isFinished) => {
+        const list = document.getElementById("list");
+        const li = document.createElement("li"); li.className = "item"; li.id = id; list.appendChild(li);
+        let status = `
+            finished-${isFinished}
+        `;
+        let markup = `
+        <div class="w-80 ${status}">
+        <span class="name" id="name-${id}">${name}</span></div><div class="w-20">
+        <i class="icon fa fa-trash-o" id="icon-${id}"></i>
+       </div>
+`;
+        li.innerHTML = markup;
 
 
-// renders task to the dom, used for the function below and when rendering a page from local storage. I absolutelly hate this code.
-var addTaskToDom = (value, id) => {
-    // creae a li element 
-    let list = document.createElement("li");
-    list.id= id;
-    list.className="task task-not-finished";
-    // create a span element for the task-name
-    let spanForName = document.createElement("span");
-    spanForName.className="task-name";
-    spanForName.innerHTML=value;
-    // create a span element for the task delete-icon
-    let spanForDeleteIcon = document.createElement("span");
-    spanForDeleteIcon.className="task-delete";
-    spanForDeleteIcon.id="span-for-delete-icon-"+id;
-       // icon for the delete-icon
-       let deleteIcon = document.createElement("i");
-       deleteIcon.className="fa fa-trash-o delete-icon";
-       deleteIcon.id="delete-"+id;
-   // inject pre-created elements into the real DOM
-    document.getElementById("list-of-tasks").appendChild(list);
-    document.getElementById(id).appendChild(spanForName);
-    document.getElementById(id).appendChild(spanForDeleteIcon);
-    document.getElementById(spanForDeleteIcon.id).appendChild(deleteIcon);
-    // event listener for delete icon
-    document.getElementById(deleteIcon.id).addEventListener("click", function(){
-        console.log("delete button clicked");
-        removeTask(id);
-    })
+        let deleteIcon = document.getElementById('icon-'+id);
+        let nameSpan = document.getElementById('name-'+id);
 
-    // event listener for the li element for the done / undone task
-    document.getElementById(id).addEventListener("click", function () {
-        console.log("element for the change status clicked");
-        changeStatus(id);
-    })
-}
+        deleteIcon.parentElement.addEventListener("click", ()=> {
+            removeTask(id);
+        });
 
+        nameSpan.parentElement.addEventListener("click", ()=> {
+            changeStatus(id);
+        })
+    }
 
     // add new task into the data and dom
-    var addTask = (name) => {
+    var addTaskToData = (name) => {
         data[data.length] = {
             task: name,
             finished: false,
         }
         if (data.length == 1) {
-            data[0].id=+0;
+            data[0].id = +0;
+        } else {
+            data[data.length - 1].id = data[data.length - 2].id + 1;
         }
-        else {
-            data[data.length-1].id = data[data.length-2].id+1;
-        }
-        addTaskToDom(name, data[data.length-1].id); // function from the module
-
     }
 
     // removes the task from the data and the dom
     var removeTask = (id) => {
+        /*
         let taskIndex = data.findIndex(x => x.id === id);
         data.splice(taskIndex, 1);
+        */
+       console.log(`task number ${id} should be deleted`);
     }
 
     // changes task from finished to not finished or the opposite
     var changeStatus = (id) => {
-       let element = document.getElementById(id);
-       if (data[id].finished === true) {
-           data[id].finished = false;
-           console.log("a");
-       }
-       else {
-        data[id].finished = true;
-        console.log("b");
-       }
+        /*
+        let element = document.getElementById(id);
+        if (data[id].finished === true) {
+            data[id].finished = false;
+            console.log("a");
+        } else {
+            data[id].finished = true;
+            console.log("b");
+        }
+        */
+       console.log(`task number ${id} should have different status :)`);
     }
 
     // render todos from local storage
-    let render =()=> {
-        for (let i=0; i < data.length; i++) {
+    let render = () => {
+        for (let i = 0; i < data.length; i++) {
 
         }
     }
 
     // saves data to the local storage
-    let save =()=> {
+    let save = () => {
 
     }
 
 
-// event listeners
 
-const taskName = document.getElementById('taskName');
 
-taskName.addEventListener("keyup", (event) =>{
-    if (event.keyCode === 13 && taskName.value !== "") {
-       addTask(taskName.value);
-       taskName.value="";
-    }
-})
+
+    // event listeners
+
+    const input = document.getElementById('input');
+
+    input.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13 && input.value !== "") {
+            addTaskToData(input.value);
+            addTaskToDom(input.value, data[data.length - 1].id, false);
+            input.value = "";
+        }
+    })
+
+
