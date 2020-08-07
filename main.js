@@ -34,6 +34,7 @@
         data[data.length] = {
             task: name,
             finished: false,
+            deleted: false
         }
         if (data.length == 1) {
             data[0].id = +0;
@@ -42,28 +43,29 @@
         }
     }
 
-    // removes the task from the data and the dom
+    // removes the task from the both -  the data && the dom
     var removeTask = (id) => {
-        /*
-        let taskIndex = data.findIndex(x => x.id === id);
-        data.splice(taskIndex, 1);
-        */
-       console.log(`task number ${id} should be deleted`);
+        data[id].deleted=true; // "delete" from the data :D 
+        let DOMtoDelete = document.getElementById(id);
+        DOMtoDelete.remove();
+        console.log(`task number ${id} was deleted successfully`);
     }
 
     // changes task from finished to not finished or the opposite
     var changeStatus = (id) => {
-        /*
         let element = document.getElementById(id);
         if (data[id].finished === true) {
             data[id].finished = false;
+            element.firstElementChild.classList.remove("finished-true");
+            element.firstElementChild.classList.add("finished-false");
             console.log("a");
         } else {
             data[id].finished = true;
+            element.firstElementChild.classList.remove("finished-false");
+            element.firstElementChild.classList.add("finished-true");
             console.log("b");
         }
-        */
-       console.log(`task number ${id} should have different status :)`);
+       console.log(`task number ${id} has different status now :)`);
     }
 
     // render todos from local storage
