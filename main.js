@@ -3,6 +3,7 @@
     ];
 
     var addTaskToDom = (name, id, isFinished) => {
+        // create elements
         const list = document.getElementById("list");
         const li = document.createElement("li"); li.className = "item"; li.id = id; list.appendChild(li);
         let status = `
@@ -16,20 +17,18 @@
 `;
         li.innerHTML = markup;
 
-
+        // add event listeners
         let deleteIcon = document.getElementById('icon-'+id);
         let nameSpan = document.getElementById('name-'+id);
-
         deleteIcon.parentElement.addEventListener("click", ()=> {
             removeTask(id);
         });
-
         nameSpan.parentElement.addEventListener("click", ()=> {
             changeStatus(id);
         })
     }
 
-    // add new task into the data and dom
+    // add new task into the data
     var addTaskToData = (name) => {
         data[data.length] = {
             task: name,
@@ -68,21 +67,20 @@
        console.log(`task number ${id} has different status now :)`);
     }
 
-    // render todos from local storage
-    let render = () => {
-        for (let i = 0; i < data.length; i++) {
-
-        }
-    }
-
     // saves data to the local storage
     let save = () => {
-
+        localStorage.setItem("data", JSON.stringify(data));
     }
 
-
-
-
+        // load data from local storage
+        var load = () => {
+            data = JSON.parse(localStorage.getItem("data"));
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].deleted === false) {
+                addTaskToDom(data[i].task, data[i].id, data[i].finished);
+                }
+            }
+        }
 
     // event listeners
 
