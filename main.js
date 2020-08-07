@@ -40,6 +40,7 @@
         } else {
             data[data.length - 1].id = data[data.length - 2].id + 1;
         }
+        save();
     }
 
     // removes the task from the both -  the data && the dom
@@ -48,6 +49,7 @@
         let DOMtoDelete = document.getElementById(id);
         DOMtoDelete.remove();
         console.log(`task number ${id} was deleted successfully`);
+        save();
     }
 
     // changes task from finished to not finished or the opposite
@@ -65,6 +67,7 @@
             console.log("b");
         }
        console.log(`task number ${id} has different status now :)`);
+       save();
     }
 
     // saves data to the local storage
@@ -93,9 +96,7 @@
 
 
     window.onload = function runOnPageLoad() { 
+        if (JSON.parse(localStorage.getItem("data") !== null)) {
        load();
+        }
     } 
-
-    window.setInterval(function(){
-        save();
-      }, 10000);
