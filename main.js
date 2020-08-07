@@ -73,7 +73,7 @@
     }
 
         // load data from local storage
-        var load = () => {
+    var load = () => {
             data = JSON.parse(localStorage.getItem("data"));
             for (let i = 0; i < data.length; i++) {
                 if(data[i].deleted === false) {
@@ -82,10 +82,7 @@
             }
         }
 
-    // event listeners
-
     const input = document.getElementById('input');
-
     input.addEventListener("keyup", (event) => {
         if (event.keyCode === 13 && input.value !== "") {
             addTaskToData(input.value);
@@ -95,3 +92,10 @@
     })
 
 
+    window.onload = function runOnPageLoad() { 
+       load();
+    } 
+
+    window.setInterval(function(){
+        save();
+      }, 10000);
